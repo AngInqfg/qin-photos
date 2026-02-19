@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+echo "-----##### 提交git规范检测中 #####-----"
+echo " "
+. "$(dirname -- "$0")/_/husky.sh"
+if ! npx --no-install commitlint --edit "$1"; then
+  # 只有在 commitlint 失败时才显示以下内容
+  echo "❌start 提交信息不符合规范，请修正后再提交！"
+  echo "commitLint.config.js"
+  echo "bug          修改bug"
+  echo "frame        架构体系修改"
+  echo "add          新增文件"
+  echo "remove       删除文件"
+  echo "style        修改样式"
+  echo "annotation   打印 注释"
+  echo "text         静态文本"
+  echo "performance  优化"
+  echo "❌end 提交信息不符合规范，请修正后再提交！"
+  echo " "
+  exit 1  # 强制退出并标记为失败
+fi
+  # 如果成功则显示成功信息
+  echo "✅ 提交信息符合规范"
+  echo " "

@@ -1,0 +1,45 @@
+{
+  "bsonType": "object",
+  "required": ["email", "code", "type", "create_time"],
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "email": {
+      "bsonType": "string",
+      "description": "邮箱"
+    },
+    "code": {
+      "bsonType": "string",
+      "description": "验证码"
+    },
+    "type": {
+      "bsonType": "string",
+      "description": "验证码类型，如 register, retrieve"
+    },
+    "expired_at": {
+      "bsonType": "number",
+      "description": "过期时间戳"
+    },
+    "create_time": {
+      "bsonType": "date",
+      "description": "创建时间"
+    }
+  },
+  "indexes": [
+    {
+      "name": "create_time_ttl",
+      "keys": {
+        "create_time": 1
+      },
+      "unique": false,
+      "expireAfterSeconds": 300
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+#!/bin/sh
+echo " "
+echo "-----##### 执行代码格式化中 #####-----"
+echo " "
+# 获取 Git 暂存区中所有已修改的文件
+CHANGED_FILES=$(git diff --cached --name-only --diff-filter=AM)
+# 如果有修改的文件
+if [ -n "$CHANGED_FILES" ]; then
+  # 使用 Prettier 格式化所有已修改的文件
+  npx prettier --write $CHANGED_FILES
+  git add $CHANGED_FILES  # 重新添加格式化后的文件到暂存区
+  echo " "
+  echo "-----##### 格式化完成 #####-----"
+  echo " "
+else
+  echo " "
+  echo "-----##### 没有需要格式化的文件 #####-----"
+  echo " "
+fi

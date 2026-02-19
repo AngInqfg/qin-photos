@@ -1,0 +1,87 @@
+{
+  "pages": [
+    {
+      "path": "qphotos/index/index",
+      "title": "QPhotos",
+      "style": {
+        "navigationStyle": "custom",
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "qphotos/home/index",
+      "title": "QPhotos",
+      "style": {
+        "navigationStyle": "custom",
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "qphotos/my/index",
+      "title": "我的相册",
+      "style": {
+        "navigationStyle": "custom",
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "qphotos/collect/index",
+      "title": "收藏相册",
+      "style": {
+        "navigationStyle": "custom",
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "qphotos/user/index",
+      "title": "用户中心",
+      "style": {
+        "navigationStyle": "custom",
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "qphotos/upload/index",
+      "title": "上传",
+      "style": {
+        "navigationStyle": "custom",
+        "disableScroll": true
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F3F4F6",
+    "backgroundColor": "#F3F4F6"
+  },
+  "h5": {
+    "router": {
+      "mode": "hash",
+      "base": "/"
+    },
+    "singlePage": false
+  },
+  "preloadRule": {
+    "qphotos/index/index": {
+      "network": "all",
+      "pages": [
+        "/qphotos/home/index",
+        "/qphotos/my/index",
+        "/qphotos/collect/index"
+      ]
+    },
+    "qphotos/home/index": {
+      "network": "all",
+      "pages": ["/qphotos/my/index", "/qphotos/collect/index"]
+    },
+    "qphotos/my/index": {
+      "network": "all",
+      "pages": ["/qphotos/home/index", "/qphotos/collect/index"]
+    },
+    "qphotos/collect/index": {
+      "network": "all",
+      "pages": ["/qphotos/home/index", "/qphotos/my/index"]
+    }
+  }
+}
